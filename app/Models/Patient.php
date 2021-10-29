@@ -12,6 +12,8 @@ class Patient extends Model
 
     protected $guarded = [];
 
+    protected $hidden = ['updated_at'];
+
     public function bloodPressureReadings(): HasMany
     {
         return $this->hasMany(PatientBloodPressure::class, 'patient_id');

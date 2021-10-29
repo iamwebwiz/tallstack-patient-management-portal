@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Nurse\DeletePatientController;
+use App\Http\Controllers\Nurse\ExportPatientsController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Livewire\Auth\Passwords\Email;
@@ -62,6 +63,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->prefix('patients')->group(function () {
     Route::get('/', ShowPatients::class)->name('patients.index');
+    Route::get('export', ExportPatientsController::class)->name('patients.export');
     Route::get('create', CreatePatient::class)->name('patients.create');
     Route::get('{patient}/readings', ShowPatientBloodPressureReadings::class)->name('patients.readings');
     Route::get('{patient}/readings/create', CreateNewBloodPressureEntry::class)->name('patients.readings.create');
