@@ -34,7 +34,7 @@
         </div>
 
         <div class="mb-5">
-            <label for="bloodGroup" class="block mb-2">Gender</label>
+            <label for="bloodGroup" class="block mb-2">Blood Group</label>
             <input type="text" id="bloodGroup" wire:model="bloodGroup" placeholder="Enter patient's blood group" class="rounded border border-gray-500 w-8/12">
             @error('bloodGroup') <span class="text-red-600 font-semibold block mt-1">{{ $message }}</span> @enderror
         </div>

@@ -22,7 +22,13 @@ class PatientsTable extends DataTableComponent
             Column::make('Blood Group', 'blood_group')->sortable()->searchable(),
             Column::make('Genotype')->sortable()->searchable(),
             Column::make('Date Added', 'created_at')->sortable()->searchable(),
+            Column::make('Actions'),
         ];
+    }
+
+    public function showBloodPressureRecords()
+    {
+        return 'hello';
     }
 
     public function query(): Builder

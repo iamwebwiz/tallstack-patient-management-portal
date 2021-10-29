@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Nurse\DeletePatientController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Livewire\Auth\Passwords\Email;
@@ -9,6 +10,7 @@ use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
 use App\Http\Livewire\Nurse\CreatePatient;
+use App\Http\Livewire\Nurse\ShowPatientBloodPressureRecords;
 use App\Http\Livewire\Nurse\ShowPatients;
 use Illuminate\Support\Facades\Route;
 
@@ -60,4 +62,6 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->prefix('patients')->group(function () {
     Route::get('/', ShowPatients::class)->name('patients.index');
     Route::get('create', CreatePatient::class)->name('patients.create');
+    Route::get('{id}/view', ShowPatientBloodPressureRecords::class)->name('patients.show');
+    Route::get('{id}/delete', DeletePatientController::class)->name('patient.delete');
 });

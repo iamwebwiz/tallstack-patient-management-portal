@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Nurse;
 
 use App\Models\Patient;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class CreatePatient extends Component
@@ -30,16 +31,16 @@ class CreatePatient extends Component
         $this->validate();
 
         Patient::create([
-            'name' => $this->name,
+            'name' => Str::title($this->name),
             'email' => $this->email,
             'phone' => $this->phone,
             'gender' => $this->gender,
             'location' => $this->location,
-            'blood_group' => $this->bloodGroup,
-            'genotype' => $this->genotype,
+            'blood_group' => Str::upper($this->bloodGroup),
+            'genotype' => Str::upper($this->genotype),
         ]);
 
-        return redirect()->route('patients.index')->withSuccess('Patient record added');
+        return redirect()->route('patients.index')->with('success', 'Patient record added');
     }
 
     public function render()

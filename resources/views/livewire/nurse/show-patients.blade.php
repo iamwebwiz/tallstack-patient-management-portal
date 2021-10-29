@@ -4,5 +4,7 @@
         <a href="{{ route('patients.create') }}" class="bg-indigo-600 text-indigo-50 uppercase px-5 py-2 rounded shadow">Create new Patient</a>
     </div>
 
+    <x-alert />
+
     <livewire:patients-table />
 </div>
