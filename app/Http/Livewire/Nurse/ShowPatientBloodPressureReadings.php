@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Nurse;
 use App\Models\Patient;
 use Livewire\Component;
 
-class ShowPatientBloodPressureRecords extends Component
+class ShowPatientBloodPressureReadings extends Component
 {
     public Patient $patient;
 
@@ -16,6 +16,6 @@ class ShowPatientBloodPressureRecords extends Component
 
     public function render()
     {
-        return view('livewire.nurse.show-patient-blood-pressure-records');
+        return view('livewire.nurse.show-patient-blood-pressure-readings');
     }
 }
