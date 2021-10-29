@@ -27,5 +27,5 @@
 </x-livewire-tables::table.cell>
 
 <x-livewire-tables::table.cell>
-    {{ $row->created_at->format('d/m/y') }}
+    {{ strtoupper($row->created_at->format('d F Y')) }}
 </x-livewire-tables::table.cell>
