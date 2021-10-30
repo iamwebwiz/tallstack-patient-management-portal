@@ -2,29 +2,28 @@
 
 namespace Tests\Feature\Nurse;
 
-use App\Http\Livewire\Nurse\ShowPatientBloodPressureReadings;
+use App\Http\Livewire\Nurse\CreateNewBloodPressureEntry;
 use App\Models\Patient;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Livewire\Livewire;
 use Tests\TestCase;
 
-class PatientBloodPressureReadingTest extends TestCase
+class CreatePatientBloodPressureReadingTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    public function a_nurse_can_view_the_page_for_patient_blood_pressure_readings()
+    public function a_nurse_can_view_page_to_create_new_blood_pressure_entry()
     {
         $user = User::factory()->create(['role' => 'nurse']);
         $patient = Patient::factory()->create();
 
         $this->actingAs($user);
 
-        $this->get(route('patients.readings', $patient->id))
+        $this->get(route('patients.readings.create', $patient->id))
             ->assertSuccessful()
-            ->assertSee('Blood Pressure Readings')
-            ->assertSeeLivewire(ShowPatientBloodPressureReadings::class);
+            ->assertSeeText('New Blood Pressure Reading')
+            ->assertSeeLivewire(CreateNewBloodPressureEntry::class);
     }
 }
