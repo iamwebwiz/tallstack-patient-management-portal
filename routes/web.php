@@ -52,15 +52,6 @@ Route::middleware('auth')->group(function () {
         ->name('password.confirm');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
-        ->middleware('signed')
-        ->name('verification.verify');
-
-    Route::post('logout', LogoutController::class)
-        ->name('logout');
-});
-
 Route::middleware('auth')->prefix('patients')->group(function () {
     Route::get('/', ShowPatients::class)->name('patients.index');
     Route::get('export', ExportPatientsController::class)->name('patients.export');
@@ -68,4 +59,13 @@ Route::middleware('auth')->prefix('patients')->group(function () {
     Route::get('{patient}/readings', ShowPatientBloodPressureReadings::class)->name('patients.readings');
     Route::get('{patient}/readings/create', CreateNewBloodPressureEntry::class)->name('patients.readings.create');
     Route::get('{id}/delete', DeletePatientController::class)->name('patient.delete');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
+        ->middleware('signed')
+        ->name('verification.verify');
+
+    Route::post('logout', LogoutController::class)
+        ->name('logout');
 });

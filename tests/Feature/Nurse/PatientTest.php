@@ -30,4 +30,20 @@ class PatientTest extends TestCase
             ->assertViewHas('patients')
             ->assertViewIs('livewire.nurse.show-patients');
     }
+
+    /** @test */
+    public function a_nurse_can_delete_a_patient_from_the_records()
+    {
+        $user = User::factory()->create(['role' => 'nurse']);
+        $patients = Patient::factory(10)->create();
+
+        $this->assertDatabaseCount('patients', 10);
+
+        $this->actingAs($user)
+            ->get(route('patient.delete', $patients[0]->id))
+            ->assertSessionHas('info', 'Deleted patient successfully')
+            ->assertRedirect();
+
+        $this->assertDatabaseCount('patients', 9);
+    }
 }
