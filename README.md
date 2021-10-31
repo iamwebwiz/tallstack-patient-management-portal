@@ -1,5 +1,6 @@
 <h1 align="center">Patient Management Portal</h1>
-Built with [TALL stack](https://tallstack.dev). This is a basic patient management portal that lets nurses manage patients.
+
+Built with [TALL Stack](https://tallstack.dev "Reactive Laravel apps with the TALL stack"). This is a basic patient management portal that lets nurses manage patients.
 
 ### Prerequisites
 - PHP 7.3+ | 8.0+
