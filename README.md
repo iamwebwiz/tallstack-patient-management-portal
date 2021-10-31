@@ -58,6 +58,13 @@ Start the development server
 php artisan serve
 ```
 
+Visit 127.0.0.1:8000 a web browser of your choice after serving the app to see the UI.
+
+Sign in with this credentials for demo purposes
+
+| Email | nurse@circlelinkhealth.com |
+| Password | password |
+
 ### Testing
 To run the tests in the application, enter the following command:
 ```shell

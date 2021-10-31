@@ -14,6 +14,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->create();
+        User::factory()->create([
+            'email' => 'nurse@circlelinkhealth.com',
+            'role' => 'nurse',
+        ]);
     }
 }

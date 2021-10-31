@@ -16,7 +16,7 @@ class CreatePatientBloodPressuresTable extends Migration
     {
         Schema::create('patient_blood_pressures', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Patient::class)->constrained();
+            $table->foreignIdFor(Patient::class)->constrained()->onDelete('cascade');
             $table->integer('diastolic');
             $table->integer('systolic');
             $table->integer('pulse_pressure');
