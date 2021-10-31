@@ -62,8 +62,10 @@ Visit 127.0.0.1:8000 a web browser of your choice after serving the app to see t
 
 Sign in with this credentials for demo purposes
 
-| Email | nurse@circlelinkhealth.com |
-| Password | password |
+| Email | Password |
+|-------|----------|
+| nurse@circlelinkhealth.com | password |
+
 
 ### Testing
 To run the tests in the application, enter the following command:
